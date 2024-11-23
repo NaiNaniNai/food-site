@@ -11,14 +11,14 @@ class CustomUser(AbstractUser):
         upload_to="avatars/",
         default="avatars/default.jpg",
         blank=True,
-        verbose_name="Аватарка")
+        verbose_name="Аватарка",
+    )
     groups = models.ManyToManyField(
         "auth.Group", related_name="users", blank=True, verbose_name="Группы"
     )
     user_permissions = models.ManyToManyField(
         "auth.Permission", related_name="users", blank=True, verbose_name="Права"
     )
-
 
     class Meta:
         verbose_name = "Пользователя"
